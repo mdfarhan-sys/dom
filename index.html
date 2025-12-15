@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Assignment</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    main{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        height:calc(100vh - 75px)
+    }
+    #eve{
+        display:flex;
+        flex-direction: column;
+        gap:15px;
+        padding-left: 18px;
+        padding-top: 8px;
+        margin-top:-200px;
+
+        background-color:rgb(160, 155, 145);
+        height: 200px;
+        width: 700px;
+        border-radius:10px;
+
+    }
+    input{
+        border-radius: 5px;
+
+        margin-top: 4px;
+        font-size: larger;
+        width: 95%;
+        height:40px;
+        padding-left: 10px;
+        border: none;
+    }
+    button {
+        background-color:rgba(66, 66, 165, 0.5);
+        color: black;
+        padding: 4px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 40px;
+        font-size: 20px;
+        margin-top:15px;
+    }
+
+    #result{
+        color:black;
+        display: block;
+        margin-top: 45px;
+        font-size: 1.5em;
+
+
+
+    }
+
+</style>
+<body>
+
+    <main>
+        <div id="eve">
+
+            <p id="result">Output :-</p>
+            <form id="form">
+                <input type="text" placeholder="enter something to disply text as it is" id="nam"/>
+                <button type="submit" id="btn">View</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault()
+            let name= document.getElementById('nam')
+            if (name.value.trim() === ""){
+                document.getElementById('result').innerText="Oops! you haven't written anything"
+                document.getElementById('result').style.visibility="visible"
+            }
+            else{
+                document.getElementById('result').innerText= name.value
+                document.getElementById('result').style.visibility="visible"
+            }
+            name.value=""
+            name.focus()
+        })
+
+    </script>
+</body>
+</html>
